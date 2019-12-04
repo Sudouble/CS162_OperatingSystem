@@ -1,14 +1,15 @@
-CC?=g++
+CC?=gcc
 CFLAGS?=-Wall
+-std=c++11
 BINARIES=wc
 
-LIBS = -O2 -lstring -liostream -lfstream -llibstdc++
+LIBS = -lstring -liostream -lfstream -llibstdc++
 
 all: default
 default: $(BINARIES)
 
 %: %.c
-	g++ $(CFLAGS) -o $@ $^
+	gcc $(CFLAGS) -o $@ $^
 
 clean:
 	rm -f $(BINARIES)
