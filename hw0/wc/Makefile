@@ -1,5 +1,5 @@
 CC?=g++
-CFLAGS?=-Wall
+CFLAGS?=-Wall -g
 BINARIES=wc
 
 LIBS = -O2 -lstring -liostream -lfstream -llibstdc++
