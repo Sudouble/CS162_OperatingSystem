@@ -1,6 +1,6 @@
 CC?=gcc
-CFLAGS?=-Wall
-BINARIES=map limits
+CFLAGS?=-Wall -g
+BINARIES=map
 
 all: default
 default: $(BINARIES)

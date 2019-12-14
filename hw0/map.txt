@@ -1,12 +1,12 @@
-1.
+1. Disassembly of section .text
 
 2.
 
-3.
+3. the stack is getting less.
 
-4.
+4. the stack size is 0x18
 
-5.
+5. the heap is at 0x8b8150, and grows bigger and bigger.
 
-6.
+6. No, memory begin at 0x8b8150 with size 100, should be ended at 0x8b81b3, but the next frame begins at 0x8b81b8
 

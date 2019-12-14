@@ -1,14 +1,14 @@
-1.
+1. print argv
 
-2.
+2. print argv[0]
 
-3.
+3. info address main: 0x10fcc
 
-4
+4. the call stack saved
 
-5.
+5. 
 
-6.
+6. the registers in CPU. the PC regs
 
 7.
 

@@ -1,8 +1,8 @@
-1.
+1. elf32-littlearm, compiled by arm architecture
 
-2.
+2. .interp/ .dynsym/ .dynstr , etc.
 
-3.
+3. the secction of main: 00010fcc g F .text 00000354 main
 
-4.
+4. no stack and heap, both of those thing is built at runtime.
 

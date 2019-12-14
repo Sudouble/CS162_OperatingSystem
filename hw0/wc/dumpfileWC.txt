@@ -1,0 +1,867 @@
+
+wc:     file format elf32-littlearm
+wc
+architecture: arm, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00010d6c
+
+Program Header:
+0x70000001 off    0x00001470 vaddr 0x00011470 paddr 0x00011470 align 2**2
+         filesz 0x00000020 memsz 0x00000020 flags r--
+    PHDR off    0x00000034 vaddr 0x00010034 paddr 0x00010034 align 2**2
+         filesz 0x00000120 memsz 0x00000120 flags r--
+  INTERP off    0x00000154 vaddr 0x00010154 paddr 0x00010154 align 2**0
+         filesz 0x00000019 memsz 0x00000019 flags r--
+    LOAD off    0x00000000 vaddr 0x00010000 paddr 0x00010000 align 2**16
+         filesz 0x00001494 memsz 0x00001494 flags r-x
+    LOAD off    0x00001ef4 vaddr 0x00021ef4 paddr 0x00021ef4 align 2**16
+         filesz 0x00000198 memsz 0x000002c4 flags rw-
+ DYNAMIC off    0x00001f00 vaddr 0x00021f00 paddr 0x00021f00 align 2**2
+         filesz 0x00000100 memsz 0x00000100 flags rw-
+    NOTE off    0x00000170 vaddr 0x00010170 paddr 0x00010170 align 2**2
+         filesz 0x00000044 memsz 0x00000044 flags r--
+   STACK off    0x00000000 vaddr 0x00000000 paddr 0x00000000 align 2**4
+         filesz 0x00000000 memsz 0x00000000 flags rw-
+   RELRO off    0x00001ef4 vaddr 0x00021ef4 paddr 0x00021ef4 align 2**0
+         filesz 0x0000010c memsz 0x0000010c flags r--
+
+Dynamic Section:
+  NEEDED               libstdc++.so.6
+  NEEDED               libm.so.6
+  NEEDED               libgcc_s.so.1
+  NEEDED               libc.so.6
+  INIT                 0x00010bf0
+  FINI                 0x00011404
+  INIT_ARRAY           0x00021ef4
+  INIT_ARRAYSZ         0x00000008
+  FINI_ARRAY           0x00021efc
+  FINI_ARRAYSZ         0x00000004
+  GNU_HASH             0x000101b4
+  STRTAB               0x000104d0
+  SYMTAB               0x000102a0
+  STRSZ                0x0000054a
+  SYMENT               0x00000010
+  DEBUG                0x00000000
+  PLTGOT               0x00022000
+  PLTRELSZ             0x000000e8
+  PLTREL               0x00000011
+  JMPREL               0x00010b08
+  REL                  0x00010af0
+  RELSZ                0x00000018
+  RELENT               0x00000008
+  VERNEED              0x00010a60
+  VERNEEDNUM           0x00000003
+  VERSYM               0x00010a1a
+
+Version References:
+  required from libgcc_s.so.1:
+    0x0b792655 0x00 07 GCC_3.5
+  required from libc.so.6:
+    0x0d696914 0x00 05 GLIBC_2.4
+  required from libstdc++.so.6:
+    0x056bafd3 0x00 06 CXXABI_1.3
+    0x0297f871 0x00 04 GLIBCXX_3.4.21
+    0x08922974 0x00 03 GLIBCXX_3.4
+    0x0849afa3 0x00 02 CXXABI_ARM_1.3.3
+private flags = 5000400: [Version5 EABI] [hard-float ABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .interp       00000019  00010154  00010154  00000154  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .note.ABI-tag 00000020  00010170  00010170  00000170  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .note.gnu.build-id 00000024  00010190  00010190  00000190  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .gnu.hash     000000ec  000101b4  000101b4  000001b4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .dynsym       00000230  000102a0  000102a0  000002a0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .dynstr       0000054a  000104d0  000104d0  000004d0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  6 .gnu.version  00000046  00010a1a  00010a1a  00000a1a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  7 .gnu.version_r 00000090  00010a60  00010a60  00000a60  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 .rel.dyn      00000018  00010af0  00010af0  00000af0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  9 .rel.plt      000000e8  00010b08  00010b08  00000b08  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 10 .init         0000000c  00010bf0  00010bf0  00000bf0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 .plt          00000170  00010bfc  00010bfc  00000bfc  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .text         00000698  00010d6c  00010d6c  00000d6c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .fini         00000008  00011404  00011404  00001404  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .rodata       0000000a  0001140c  0001140c  0000140c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 15 .ARM.extab    00000056  00011418  00011418  00001418  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 16 .ARM.exidx    00000020  00011470  00011470  00001470  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 17 .eh_frame     00000004  00011490  00011490  00001490  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 18 .init_array   00000008  00021ef4  00021ef4  00001ef4  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 19 .fini_array   00000004  00021efc  00021efc  00001efc  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 20 .dynamic      00000100  00021f00  00021f00  00001f00  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 21 .got          00000084  00022000  00022000  00002000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 22 .data         00000008  00022084  00022084  00002084  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 23 .bss          00000128  00022090  00022090  0000208c  2**3
+                  ALLOC
+ 24 .comment      00000023  00000000  00000000  0000208c  2**0
+                  CONTENTS, READONLY
+ 25 .ARM.attributes 0000002f  00000000  00000000  000020af  2**0
+                  CONTENTS, READONLY
+ 26 .debug_aranges 00000020  00000000  00000000  000020de  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 27 .debug_info   00005dc3  00000000  00000000  000020fe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 28 .debug_abbrev 000008a7  00000000  00000000  00007ec1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 29 .debug_line   0000065e  00000000  00000000  00008768  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 30 .debug_frame  000000b0  00000000  00000000  00008dc8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 31 .debug_str    000068be  00000000  00000000  00008e78  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 32 .debug_ranges 00000030  00000000  00000000  0000f736  2**0
+                  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+00010154 l    d  .interp	00000000              .interp
+00010170 l    d  .note.ABI-tag	00000000              .note.ABI-tag
+00010190 l    d  .note.gnu.build-id	00000000              .note.gnu.build-id
+000101b4 l    d  .gnu.hash	00000000              .gnu.hash
+000102a0 l    d  .dynsym	00000000              .dynsym
+000104d0 l    d  .dynstr	00000000              .dynstr
+00010a1a l    d  .gnu.version	00000000              .gnu.version
+00010a60 l    d  .gnu.version_r	00000000              .gnu.version_r
+00010af0 l    d  .rel.dyn	00000000              .rel.dyn
+00010b08 l    d  .rel.plt	00000000              .rel.plt
+00010bf0 l    d  .init	00000000              .init
+00010bfc l    d  .plt	00000000              .plt
+00010d6c l    d  .text	00000000              .text
+00011404 l    d  .fini	00000000              .fini
+0001140c l    d  .rodata	00000000              .rodata
+00011418 l    d  .ARM.extab	00000000              .ARM.extab
+00011470 l    d  .ARM.exidx	00000000              .ARM.exidx
+00011490 l    d  .eh_frame	00000000              .eh_frame
+00021ef4 l    d  .init_array	00000000              .init_array
+00021efc l    d  .fini_array	00000000              .fini_array
+00021f00 l    d  .dynamic	00000000              .dynamic
+00022000 l    d  .got	00000000              .got
+00022084 l    d  .data	00000000              .data
+00022090 l    d  .bss	00000000              .bss
+00000000 l    d  .comment	00000000              .comment
+00000000 l    d  .ARM.attributes	00000000              .ARM.attributes
+00000000 l    d  .debug_aranges	00000000              .debug_aranges
+00000000 l    d  .debug_info	00000000              .debug_info
+00000000 l    d  .debug_abbrev	00000000              .debug_abbrev
+00000000 l    d  .debug_line	00000000              .debug_line
+00000000 l    d  .debug_frame	00000000              .debug_frame
+00000000 l    d  .debug_str	00000000              .debug_str
+00000000 l    d  .debug_ranges	00000000              .debug_ranges
+00000000 l    df *ABS*	00000000              /usr/lib/gcc/arm-linux-gnueabihf/8/../../../arm-linux-gnueabihf/crt1.o
+00000000 l    df *ABS*	00000000              /usr/lib/gcc/arm-linux-gnueabihf/8/../../../arm-linux-gnueabihf/crti.o
+00010da8 l     F .text	00000000              call_weak_fn
+00000000 l    df *ABS*	00000000              /usr/lib/gcc/arm-linux-gnueabihf/8/../../../arm-linux-gnueabihf/crtn.o
+00000000 l    df *ABS*	00000000              crtstuff.c
+00010dcc l     F .text	00000000              deregister_tm_clones
+00010df8 l     F .text	00000000              register_tm_clones
+00010e30 l     F .text	00000000              __do_global_dtors_aux
+000221b0 l     O .bss	00000001              completed.10783
+00021efc l     O .fini_array	00000000              __do_global_dtors_aux_fini_array_entry
+00010e58 l     F .text	00000000              frame_dummy
+00021ef4 l     O .init_array	00000000              __frame_dummy_init_array_entry
+00000000 l    df *ABS*	00000000              wc.c
+00011410 l     O .rodata	00000001              _ZStL19piecewise_construct
+000221b4 l     O .bss	00000001              _ZStL8__ioinit
+00011320 l     F .text	00000064              _Z41__static_initialization_and_destruction_0ii
+00011384 l     F .text	0000001c              _GLOBAL__sub_I__Z6IsWordc
+00000000 l    df *ABS*	00000000              elf-init.oS
+00000000 l    df *ABS*	00000000              crtstuff.c
+00011490 l     O .eh_frame	00000000              __FRAME_END__
+00000000 l    df *ABS*	00000000              
+00021f00 l     O .dynamic	00000000              _DYNAMIC
+00021efc l       .init_array	00000000              __init_array_end
+00021ef4 l       .init_array	00000000              __init_array_start
+00022000 l     O .got	00000000              _GLOBAL_OFFSET_TABLE_
+00000000       F *UND*	00000000              __aeabi_atexit@@CXXABI_ARM_1.3.3
+00000000       F *UND*	00000000              _ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv@@GLIBCXX_3.4
+0002208c g       .data	00000000              _edata
+00000000       F *UND*	00000000              _ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev@@GLIBCXX_3.4
+00022084  w      .data	00000000              data_start
+0001140c g     O .rodata	00000004              _IO_stdin_used
+00000000       F *UND*	00000000              _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_@@GLIBCXX_3.4.21
+00010fcc g     F .text	00000354              main
+00010c40       F *UND*	00000000              _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@@GLIBCXX_3.4
+000221b8 g       .bss	00000000              __end__
+00022088 g     O .data	00000000              .hidden __dso_handle
+00000000       F *UND*	00000000              _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@@GLIBCXX_3.4.21
+00011404 g     F .fini	00000000              .hidden _fini
+000221b8 g       .bss	00000000              __bss_end__
+00000000       F *UND*	00000000              abort@@GLIBC_2.4
+00000000       F *UND*	00000000              _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEj@@GLIBCXX_3.4.21
+00000000       F *UND*	00000000              _ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode@@GLIBCXX_3.4.21
+000221b8 g       .bss	00000000              _bss_end__
+00010d6c g     F .text	00000000              _start
+00000000       F *UND*	00000000              _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@@GLIBCXX_3.4
+00000000       F *UND*	00000000              _ZNSolsEPFRSoS_E@@GLIBCXX_3.4
+00000000       F *UND*	00000000              _ZNSaIcED1Ev@@GLIBCXX_3.4
+00010bf0 g     F .init	00000000              .hidden _init
+00000000       F *UND*	00000000              __cxa_end_cleanup@@CXXABI_1.3
+00000000       F *UND*	00000000              _ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev@@GLIBCXX_3.4
+0002208c g     O .data	00000000              .hidden __TMC_END__
+00000000       F *UND*	00000000              _ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv@@GLIBCXX_3.4.21
+00000000       F *UND*	00000000              _ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE@@GLIBCXX_3.4.21
+00022090 g     O .bss	0000008c              _ZSt4cout@@GLIBCXX_3.4
+0002208c g       .bss	00000000              __bss_start__
+00000000       F *UND*	00000000              _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@@GLIBCXX_3.4.21
+00022084 g       .data	00000000              __data_start
+000221b8 g       .bss	00000000              _end
+00000000       F *UND*	00000000              _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev@@GLIBCXX_3.4.21
+00010ea4 g     F .text	00000128              _Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+00010e5c g     F .text	00000048              _Z6IsWordc
+00000000       F *UND*	00000000              _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv@@GLIBCXX_3.4.21
+0002208c g       .bss	00000000              __bss_start
+00000000       F *UND*	00000000              strlen@@GLIBC_2.4
+00000000       F *UND*	00000000              _ZNSt8ios_base4InitC1Ev@@GLIBCXX_3.4
+000113a0 g     F .text	00000060              __libc_csu_init
+00000000       F *UND*	00000000              __aeabi_unwind_cpp_pr1@@GCC_3.5
+00000000       F *UND*	00000000              __gxx_personality_v0@@CXXABI_1.3
+00000000       F *UND*	00000000              _ZNSolsEi@@GLIBCXX_3.4
+00000000       F *UND*	00000000              _ZNSi7getlineEPci@@GLIBCXX_3.4
+00000000  w      *UND*	00000000              _ITM_deregisterTMCloneTable
+00000000       F *UND*	00000000              _ZNSaIcEC1Ev@@GLIBCXX_3.4
+00011400 g     F .text	00000004              __libc_csu_fini
+00022120 g     O .bss	00000090              _ZSt3cin@@GLIBCXX_3.4
+00000000       F *UND*	00000000              _ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv@@GLIBCXX_3.4
+00000000       F *UND*	00000000              __libc_start_main@@GLIBC_2.4
+00000000  w      *UND*	00000000              __gmon_start__
+00000000  w      *UND*	00000000              _ITM_registerTMCloneTable
+00010d60       F *UND*	00000000              _ZNSt8ios_base4InitD1Ev@@GLIBCXX_3.4
+
+
+
+Disassembly of section .init:
+
+00010bf0 <_init>:
+   10bf0:	e92d4008 	push	{r3, lr}
+   10bf4:	eb00006b 	bl	10da8 <call_weak_fn>
+   10bf8:	e8bd8008 	pop	{r3, pc}
+
+Disassembly of section .plt:
+
+00010bfc <.plt>:
+   10bfc:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+   10c00:	e59fe004 	ldr	lr, [pc, #4]	; 10c0c <.plt+0x10>
+   10c04:	e08fe00e 	add	lr, pc, lr
+   10c08:	e5bef008 	ldr	pc, [lr, #8]!
+   10c0c:	000113f4 	.word	0x000113f4
+
+00010c10 <__aeabi_atexit@plt>:
+   10c10:	e28fc600 	add	ip, pc, #0, 12
+   10c14:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c18:	e5bcf3f4 	ldr	pc, [ip, #1012]!	; 0x3f4
+
+00010c1c <_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv@plt>:
+   10c1c:	e28fc600 	add	ip, pc, #0, 12
+   10c20:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c24:	e5bcf3ec 	ldr	pc, [ip, #1004]!	; 0x3ec
+
+00010c28 <_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev@plt>:
+   10c28:	e28fc600 	add	ip, pc, #0, 12
+   10c2c:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c30:	e5bcf3e4 	ldr	pc, [ip, #996]!	; 0x3e4
+
+00010c34 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_@plt>:
+   10c34:	e28fc600 	add	ip, pc, #0, 12
+   10c38:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c3c:	e5bcf3dc 	ldr	pc, [ip, #988]!	; 0x3dc
+
+00010c40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>:
+   10c40:	e28fc600 	add	ip, pc, #0, 12
+   10c44:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c48:	e5bcf3d4 	ldr	pc, [ip, #980]!	; 0x3d4
+
+00010c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>:
+   10c4c:	e28fc600 	add	ip, pc, #0, 12
+   10c50:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c54:	e5bcf3cc 	ldr	pc, [ip, #972]!	; 0x3cc
+
+00010c58 <abort@plt>:
+   10c58:	e28fc600 	add	ip, pc, #0, 12
+   10c5c:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c60:	e5bcf3c4 	ldr	pc, [ip, #964]!	; 0x3c4
+
+00010c64 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEj@plt>:
+   10c64:	e28fc600 	add	ip, pc, #0, 12
+   10c68:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c6c:	e5bcf3bc 	ldr	pc, [ip, #956]!	; 0x3bc
+
+00010c70 <_ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode@plt>:
+   10c70:	e28fc600 	add	ip, pc, #0, 12
+   10c74:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c78:	e5bcf3b4 	ldr	pc, [ip, #948]!	; 0x3b4
+
+00010c7c <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>:
+   10c7c:	e28fc600 	add	ip, pc, #0, 12
+   10c80:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c84:	e5bcf3ac 	ldr	pc, [ip, #940]!	; 0x3ac
+
+00010c88 <_ZNSolsEPFRSoS_E@plt>:
+   10c88:	e28fc600 	add	ip, pc, #0, 12
+   10c8c:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c90:	e5bcf3a4 	ldr	pc, [ip, #932]!	; 0x3a4
+
+00010c94 <_ZNSaIcED1Ev@plt>:
+   10c94:	e28fc600 	add	ip, pc, #0, 12
+   10c98:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10c9c:	e5bcf39c 	ldr	pc, [ip, #924]!	; 0x39c
+
+00010ca0 <__cxa_end_cleanup@plt>:
+   10ca0:	e28fc600 	add	ip, pc, #0, 12
+   10ca4:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10ca8:	e5bcf394 	ldr	pc, [ip, #916]!	; 0x394
+
+00010cac <_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev@plt>:
+   10cac:	e28fc600 	add	ip, pc, #0, 12
+   10cb0:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10cb4:	e5bcf38c 	ldr	pc, [ip, #908]!	; 0x38c
+
+00010cb8 <_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv@plt>:
+   10cb8:	e28fc600 	add	ip, pc, #0, 12
+   10cbc:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10cc0:	e5bcf384 	ldr	pc, [ip, #900]!	; 0x384
+
+00010cc4 <_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE@plt>:
+   10cc4:	e28fc600 	add	ip, pc, #0, 12
+   10cc8:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10ccc:	e5bcf37c 	ldr	pc, [ip, #892]!	; 0x37c
+
+00010cd0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@plt>:
+   10cd0:	e28fc600 	add	ip, pc, #0, 12
+   10cd4:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10cd8:	e5bcf374 	ldr	pc, [ip, #884]!	; 0x374
+
+00010cdc <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev@plt>:
+   10cdc:	e28fc600 	add	ip, pc, #0, 12
+   10ce0:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10ce4:	e5bcf36c 	ldr	pc, [ip, #876]!	; 0x36c
+
+00010ce8 <_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv@plt>:
+   10ce8:	e28fc600 	add	ip, pc, #0, 12
+   10cec:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10cf0:	e5bcf364 	ldr	pc, [ip, #868]!	; 0x364
+
+00010cf4 <strlen@plt>:
+   10cf4:	e28fc600 	add	ip, pc, #0, 12
+   10cf8:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10cfc:	e5bcf35c 	ldr	pc, [ip, #860]!	; 0x35c
+
+00010d00 <_ZNSt8ios_base4InitC1Ev@plt>:
+   10d00:	e28fc600 	add	ip, pc, #0, 12
+   10d04:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d08:	e5bcf354 	ldr	pc, [ip, #852]!	; 0x354
+
+00010d0c <__gxx_personality_v0@plt>:
+   10d0c:	e28fc600 	add	ip, pc, #0, 12
+   10d10:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d14:	e5bcf34c 	ldr	pc, [ip, #844]!	; 0x34c
+
+00010d18 <_ZNSolsEi@plt>:
+   10d18:	e28fc600 	add	ip, pc, #0, 12
+   10d1c:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d20:	e5bcf344 	ldr	pc, [ip, #836]!	; 0x344
+
+00010d24 <_ZNSi7getlineEPci@plt>:
+   10d24:	e28fc600 	add	ip, pc, #0, 12
+   10d28:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d2c:	e5bcf33c 	ldr	pc, [ip, #828]!	; 0x33c
+
+00010d30 <_ZNSaIcEC1Ev@plt>:
+   10d30:	e28fc600 	add	ip, pc, #0, 12
+   10d34:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d38:	e5bcf334 	ldr	pc, [ip, #820]!	; 0x334
+
+00010d3c <_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv@plt>:
+   10d3c:	e28fc600 	add	ip, pc, #0, 12
+   10d40:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d44:	e5bcf32c 	ldr	pc, [ip, #812]!	; 0x32c
+
+00010d48 <__libc_start_main@plt>:
+   10d48:	e28fc600 	add	ip, pc, #0, 12
+   10d4c:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d50:	e5bcf324 	ldr	pc, [ip, #804]!	; 0x324
+
+00010d54 <__gmon_start__@plt>:
+   10d54:	e28fc600 	add	ip, pc, #0, 12
+   10d58:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d5c:	e5bcf31c 	ldr	pc, [ip, #796]!	; 0x31c
+
+00010d60 <_ZNSt8ios_base4InitD1Ev@plt>:
+   10d60:	e28fc600 	add	ip, pc, #0, 12
+   10d64:	e28cca11 	add	ip, ip, #69632	; 0x11000
+   10d68:	e5bcf314 	ldr	pc, [ip, #788]!	; 0x314
+
+Disassembly of section .text:
+
+00010d6c <_start>:
+   10d6c:	e3a0b000 	mov	fp, #0
+   10d70:	e3a0e000 	mov	lr, #0
+   10d74:	e49d1004 	pop	{r1}		; (ldr r1, [sp], #4)
+   10d78:	e1a0200d 	mov	r2, sp
+   10d7c:	e52d2004 	push	{r2}		; (str r2, [sp, #-4]!)
+   10d80:	e52d0004 	push	{r0}		; (str r0, [sp, #-4]!)
+   10d84:	e59fc010 	ldr	ip, [pc, #16]	; 10d9c <_start+0x30>
+   10d88:	e52dc004 	push	{ip}		; (str ip, [sp, #-4]!)
+   10d8c:	e59f000c 	ldr	r0, [pc, #12]	; 10da0 <_start+0x34>
+   10d90:	e59f300c 	ldr	r3, [pc, #12]	; 10da4 <_start+0x38>
+   10d94:	ebffffeb 	bl	10d48 <__libc_start_main@plt>
+   10d98:	ebffffae 	bl	10c58 <abort@plt>
+   10d9c:	00011400 	.word	0x00011400
+   10da0:	00010fcc 	.word	0x00010fcc
+   10da4:	000113a0 	.word	0x000113a0
+
+00010da8 <call_weak_fn>:
+   10da8:	e59f3014 	ldr	r3, [pc, #20]	; 10dc4 <call_weak_fn+0x1c>
+   10dac:	e59f2014 	ldr	r2, [pc, #20]	; 10dc8 <call_weak_fn+0x20>
+   10db0:	e08f3003 	add	r3, pc, r3
+   10db4:	e7932002 	ldr	r2, [r3, r2]
+   10db8:	e3520000 	cmp	r2, #0
+   10dbc:	012fff1e 	bxeq	lr
+   10dc0:	eaffffe3 	b	10d54 <__gmon_start__@plt>
+   10dc4:	00011248 	.word	0x00011248
+   10dc8:	00000080 	.word	0x00000080
+
+00010dcc <deregister_tm_clones>:
+   10dcc:	e59f0018 	ldr	r0, [pc, #24]	; 10dec <deregister_tm_clones+0x20>
+   10dd0:	e59f3018 	ldr	r3, [pc, #24]	; 10df0 <deregister_tm_clones+0x24>
+   10dd4:	e1530000 	cmp	r3, r0
+   10dd8:	012fff1e 	bxeq	lr
+   10ddc:	e59f3010 	ldr	r3, [pc, #16]	; 10df4 <deregister_tm_clones+0x28>
+   10de0:	e3530000 	cmp	r3, #0
+   10de4:	012fff1e 	bxeq	lr
+   10de8:	e12fff13 	bx	r3
+   10dec:	0002208c 	.word	0x0002208c
+   10df0:	0002208c 	.word	0x0002208c
+   10df4:	00000000 	.word	0x00000000
+
+00010df8 <register_tm_clones>:
+   10df8:	e59f0024 	ldr	r0, [pc, #36]	; 10e24 <register_tm_clones+0x2c>
+   10dfc:	e59f1024 	ldr	r1, [pc, #36]	; 10e28 <register_tm_clones+0x30>
+   10e00:	e0411000 	sub	r1, r1, r0
+   10e04:	e1a01141 	asr	r1, r1, #2
+   10e08:	e0811fa1 	add	r1, r1, r1, lsr #31
+   10e0c:	e1b010c1 	asrs	r1, r1, #1
+   10e10:	012fff1e 	bxeq	lr
+   10e14:	e59f3010 	ldr	r3, [pc, #16]	; 10e2c <register_tm_clones+0x34>
+   10e18:	e3530000 	cmp	r3, #0
+   10e1c:	012fff1e 	bxeq	lr
+   10e20:	e12fff13 	bx	r3
+   10e24:	0002208c 	.word	0x0002208c
+   10e28:	0002208c 	.word	0x0002208c
+   10e2c:	00000000 	.word	0x00000000
+
+00010e30 <__do_global_dtors_aux>:
+   10e30:	e92d4010 	push	{r4, lr}
+   10e34:	e59f4018 	ldr	r4, [pc, #24]	; 10e54 <__do_global_dtors_aux+0x24>
+   10e38:	e5d43000 	ldrb	r3, [r4]
+   10e3c:	e3530000 	cmp	r3, #0
+   10e40:	18bd8010 	popne	{r4, pc}
+   10e44:	ebffffe0 	bl	10dcc <deregister_tm_clones>
+   10e48:	e3a03001 	mov	r3, #1
+   10e4c:	e5c43000 	strb	r3, [r4]
+   10e50:	e8bd8010 	pop	{r4, pc}
+   10e54:	000221b0 	.word	0x000221b0
+
+00010e58 <frame_dummy>:
+   10e58:	eaffffe6 	b	10df8 <register_tm_clones>
+
+00010e5c <_Z6IsWordc>:
+   10e5c:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+   10e60:	e28db000 	add	fp, sp, #0
+   10e64:	e24dd00c 	sub	sp, sp, #12
+   10e68:	e1a03000 	mov	r3, r0
+   10e6c:	e54b3005 	strb	r3, [fp, #-5]
+   10e70:	e55b3005 	ldrb	r3, [fp, #-5]
+   10e74:	e3530020 	cmp	r3, #32
+   10e78:	0a000004 	beq	10e90 <_Z6IsWordc+0x34>
+   10e7c:	e55b3005 	ldrb	r3, [fp, #-5]
+   10e80:	e3530009 	cmp	r3, #9
+   10e84:	0a000001 	beq	10e90 <_Z6IsWordc+0x34>
+   10e88:	e3a03001 	mov	r3, #1
+   10e8c:	ea000000 	b	10e94 <_Z6IsWordc+0x38>
+   10e90:	e3a03000 	mov	r3, #0
+   10e94:	e1a00003 	mov	r0, r3
+   10e98:	e28bd000 	add	sp, fp, #0
+   10e9c:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+   10ea0:	e12fff1e 	bx	lr
+
+00010ea4 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE>:
+   10ea4:	e92d4800 	push	{fp, lr}
+   10ea8:	e28db004 	add	fp, sp, #4
+   10eac:	e24dd018 	sub	sp, sp, #24
+   10eb0:	e50b0018 	str	r0, [fp, #-24]	; 0xffffffe8
+   10eb4:	e3a03000 	mov	r3, #0
+   10eb8:	e50b3008 	str	r3, [fp, #-8]
+   10ebc:	e3a03000 	mov	r3, #0
+   10ec0:	e50b300c 	str	r3, [fp, #-12]
+   10ec4:	e3a03000 	mov	r3, #0
+   10ec8:	e50b3010 	str	r3, [fp, #-16]
+   10ecc:	e51b0018 	ldr	r0, [fp, #-24]	; 0xffffffe8
+   10ed0:	ebffff84 	bl	10ce8 <_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv@plt>
+   10ed4:	e1a02000 	mov	r2, r0
+   10ed8:	e51b3010 	ldr	r3, [fp, #-16]
+   10edc:	e1530002 	cmp	r3, r2
+   10ee0:	33a03001 	movcc	r3, #1
+   10ee4:	23a03000 	movcs	r3, #0
+   10ee8:	e6ef3073 	uxtb	r3, r3
+   10eec:	e3530000 	cmp	r3, #0
+   10ef0:	0a000031 	beq	10fbc <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x118>
+   10ef4:	e51b1010 	ldr	r1, [fp, #-16]
+   10ef8:	e51b0018 	ldr	r0, [fp, #-24]	; 0xffffffe8
+   10efc:	ebffff58 	bl	10c64 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEj@plt>
+   10f00:	e1a03000 	mov	r3, r0
+   10f04:	e5d33000 	ldrb	r3, [r3]
+   10f08:	e1a00003 	mov	r0, r3
+   10f0c:	ebffffd2 	bl	10e5c <_Z6IsWordc>
+   10f10:	e1a03000 	mov	r3, r0
+   10f14:	e3530000 	cmp	r3, #0
+   10f18:	0a000004 	beq	10f30 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x8c>
+   10f1c:	e51b300c 	ldr	r3, [fp, #-12]
+   10f20:	e3530000 	cmp	r3, #0
+   10f24:	1a000001 	bne	10f30 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x8c>
+   10f28:	e3a03001 	mov	r3, #1
+   10f2c:	ea000000 	b	10f34 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x90>
+   10f30:	e3a03000 	mov	r3, #0
+   10f34:	e3530000 	cmp	r3, #0
+   10f38:	0a000005 	beq	10f54 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0xb0>
+   10f3c:	e51b3008 	ldr	r3, [fp, #-8]
+   10f40:	e2833001 	add	r3, r3, #1
+   10f44:	e50b3008 	str	r3, [fp, #-8]
+   10f48:	e3a03001 	mov	r3, #1
+   10f4c:	e50b300c 	str	r3, [fp, #-12]
+   10f50:	ea000015 	b	10fac <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x108>
+   10f54:	e51b1010 	ldr	r1, [fp, #-16]
+   10f58:	e51b0018 	ldr	r0, [fp, #-24]	; 0xffffffe8
+   10f5c:	ebffff40 	bl	10c64 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEj@plt>
+   10f60:	e1a03000 	mov	r3, r0
+   10f64:	e5d33000 	ldrb	r3, [r3]
+   10f68:	e1a00003 	mov	r0, r3
+   10f6c:	ebffffba 	bl	10e5c <_Z6IsWordc>
+   10f70:	e1a03000 	mov	r3, r0
+   10f74:	e2233001 	eor	r3, r3, #1
+   10f78:	e6ef3073 	uxtb	r3, r3
+   10f7c:	e3530000 	cmp	r3, #0
+   10f80:	0a000004 	beq	10f98 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0xf4>
+   10f84:	e51b300c 	ldr	r3, [fp, #-12]
+   10f88:	e3530001 	cmp	r3, #1
+   10f8c:	1a000001 	bne	10f98 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0xf4>
+   10f90:	e3a03001 	mov	r3, #1
+   10f94:	ea000000 	b	10f9c <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0xf8>
+   10f98:	e3a03000 	mov	r3, #0
+   10f9c:	e3530000 	cmp	r3, #0
+   10fa0:	0a000001 	beq	10fac <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x108>
+   10fa4:	e3a03000 	mov	r3, #0
+   10fa8:	e50b300c 	str	r3, [fp, #-12]
+   10fac:	e51b3010 	ldr	r3, [fp, #-16]
+   10fb0:	e2833001 	add	r3, r3, #1
+   10fb4:	e50b3010 	str	r3, [fp, #-16]
+   10fb8:	eaffffc3 	b	10ecc <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x28>
+   10fbc:	e51b3008 	ldr	r3, [fp, #-8]
+   10fc0:	e1a00003 	mov	r0, r3
+   10fc4:	e24bd004 	sub	sp, fp, #4
+   10fc8:	e8bd8800 	pop	{fp, pc}
+
+00010fcc <main>:
+   10fcc:	e92d4810 	push	{r4, fp, lr}
+   10fd0:	e28db008 	add	fp, sp, #8
+   10fd4:	e24ddfa7 	sub	sp, sp, #668	; 0x29c
+   10fd8:	e50b02a0 	str	r0, [fp, #-672]	; 0xfffffd60
+   10fdc:	e50b12a4 	str	r1, [fp, #-676]	; 0xfffffd5c
+   10fe0:	e3a03000 	mov	r3, #0
+   10fe4:	e50b3010 	str	r3, [fp, #-16]
+   10fe8:	e3a03000 	mov	r3, #0
+   10fec:	e50b3014 	str	r3, [fp, #-20]	; 0xffffffec
+   10ff0:	e3a03000 	mov	r3, #0
+   10ff4:	e50b3018 	str	r3, [fp, #-24]	; 0xffffffe8
+   10ff8:	e24b3068 	sub	r3, fp, #104	; 0x68
+   10ffc:	e1a00003 	mov	r0, r3
+   11000:	ebffff35 	bl	10cdc <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev@plt>
+   11004:	e51b32a0 	ldr	r3, [fp, #-672]	; 0xfffffd60
+   11008:	e3530001 	cmp	r3, #1
+   1100c:	1a000028 	bne	110b4 <main+0xe8>
+   11010:	e24b3068 	sub	r3, fp, #104	; 0x68
+   11014:	e1a01003 	mov	r1, r3
+   11018:	e59f02f0 	ldr	r0, [pc, #752]	; 11310 <main+0x344>
+   1101c:	ebffff28 	bl	10cc4 <_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE@plt>
+   11020:	e1a03000 	mov	r3, r0
+   11024:	e5932000 	ldr	r2, [r3]
+   11028:	e242200c 	sub	r2, r2, #12
+   1102c:	e5922000 	ldr	r2, [r2]
+   11030:	e0833002 	add	r3, r3, r2
+   11034:	e1a00003 	mov	r0, r3
+   11038:	ebffff1e 	bl	10cb8 <_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv@plt>
+   1103c:	e1a03000 	mov	r3, r0
+   11040:	e3530000 	cmp	r3, #0
+   11044:	0a000071 	beq	11210 <main+0x244>
+   11048:	e51b3010 	ldr	r3, [fp, #-16]
+   1104c:	e2833001 	add	r3, r3, #1
+   11050:	e50b3010 	str	r3, [fp, #-16]
+   11054:	e24b3068 	sub	r3, fp, #104	; 0x68
+   11058:	e1a00003 	mov	r0, r3
+   1105c:	ebffff21 	bl	10ce8 <_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv@plt>
+   11060:	e1a03000 	mov	r3, r0
+   11064:	e2832001 	add	r2, r3, #1
+   11068:	e51b3018 	ldr	r3, [fp, #-24]	; 0xffffffe8
+   1106c:	e0823003 	add	r3, r2, r3
+   11070:	e50b3018 	str	r3, [fp, #-24]	; 0xffffffe8
+   11074:	e24b2068 	sub	r2, fp, #104	; 0x68
+   11078:	e24b3050 	sub	r3, fp, #80	; 0x50
+   1107c:	e1a01002 	mov	r1, r2
+   11080:	e1a00003 	mov	r0, r3
+   11084:	ebfffeea 	bl	10c34 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_@plt>
+   11088:	e24b3050 	sub	r3, fp, #80	; 0x50
+   1108c:	e1a00003 	mov	r0, r3
+   11090:	ebffff83 	bl	10ea4 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE>
+   11094:	e1a02000 	mov	r2, r0
+   11098:	e51b3014 	ldr	r3, [fp, #-20]	; 0xffffffec
+   1109c:	e0833002 	add	r3, r3, r2
+   110a0:	e50b3014 	str	r3, [fp, #-20]	; 0xffffffec
+   110a4:	e24b3050 	sub	r3, fp, #80	; 0x50
+   110a8:	e1a00003 	mov	r0, r3
+   110ac:	ebfffee6 	bl	10c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+   110b0:	eaffffd6 	b	11010 <main+0x44>
+   110b4:	e51b32a0 	ldr	r3, [fp, #-672]	; 0xfffffd60
+   110b8:	e3530002 	cmp	r3, #2
+   110bc:	1a000053 	bne	11210 <main+0x244>
+   110c0:	e51b32a4 	ldr	r3, [fp, #-676]	; 0xfffffd5c
+   110c4:	e2833004 	add	r3, r3, #4
+   110c8:	e5934000 	ldr	r4, [r3]
+   110cc:	e24b3038 	sub	r3, fp, #56	; 0x38
+   110d0:	e1a00003 	mov	r0, r3
+   110d4:	ebffff15 	bl	10d30 <_ZNSaIcEC1Ev@plt>
+   110d8:	e24b2038 	sub	r2, fp, #56	; 0x38
+   110dc:	e24b3080 	sub	r3, fp, #128	; 0x80
+   110e0:	e1a01004 	mov	r1, r4
+   110e4:	e1a00003 	mov	r0, r3
+   110e8:	ebfffef8 	bl	10cd0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@plt>
+   110ec:	e24b3038 	sub	r3, fp, #56	; 0x38
+   110f0:	e1a00003 	mov	r0, r3
+   110f4:	ebfffee6 	bl	10c94 <_ZNSaIcED1Ev@plt>
+   110f8:	e24b3f66 	sub	r3, fp, #408	; 0x198
+   110fc:	e1a00003 	mov	r0, r3
+   11100:	ebfffee9 	bl	10cac <_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev@plt>
+   11104:	e24b1080 	sub	r1, fp, #128	; 0x80
+   11108:	e24b3f66 	sub	r3, fp, #408	; 0x198
+   1110c:	e3a02008 	mov	r2, #8
+   11110:	e1a00003 	mov	r0, r3
+   11114:	ebfffed5 	bl	10c70 <_ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode@plt>
+   11118:	e24b3f66 	sub	r3, fp, #408	; 0x198
+   1111c:	e2833090 	add	r3, r3, #144	; 0x90
+   11120:	e1a00003 	mov	r0, r3
+   11124:	ebffff04 	bl	10d3c <_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv@plt>
+   11128:	e1a03000 	mov	r3, r0
+   1112c:	e2233001 	eor	r3, r3, #1
+   11130:	e6ef3073 	uxtb	r3, r3
+   11134:	e3530000 	cmp	r3, #0
+   11138:	0a000025 	beq	111d4 <main+0x208>
+   1113c:	e24b1fa6 	sub	r1, fp, #664	; 0x298
+   11140:	e24b3f66 	sub	r3, fp, #408	; 0x198
+   11144:	e3a020ff 	mov	r2, #255	; 0xff
+   11148:	e1a00003 	mov	r0, r3
+   1114c:	ebfffef4 	bl	10d24 <_ZNSi7getlineEPci@plt>
+   11150:	e51b3010 	ldr	r3, [fp, #-16]
+   11154:	e2833001 	add	r3, r3, #1
+   11158:	e50b3010 	str	r3, [fp, #-16]
+   1115c:	e24b3fa6 	sub	r3, fp, #664	; 0x298
+   11160:	e1a00003 	mov	r0, r3
+   11164:	ebfffee2 	bl	10cf4 <strlen@plt>
+   11168:	e1a02000 	mov	r2, r0
+   1116c:	e51b3018 	ldr	r3, [fp, #-24]	; 0xffffffe8
+   11170:	e0823003 	add	r3, r2, r3
+   11174:	e2833001 	add	r3, r3, #1
+   11178:	e50b3018 	str	r3, [fp, #-24]	; 0xffffffe8
+   1117c:	e24b301c 	sub	r3, fp, #28
+   11180:	e1a00003 	mov	r0, r3
+   11184:	ebfffee9 	bl	10d30 <_ZNSaIcEC1Ev@plt>
+   11188:	e24b201c 	sub	r2, fp, #28
+   1118c:	e24b1fa6 	sub	r1, fp, #664	; 0x298
+   11190:	e24b3034 	sub	r3, fp, #52	; 0x34
+   11194:	e1a00003 	mov	r0, r3
+   11198:	ebfffecc 	bl	10cd0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@plt>
+   1119c:	e24b3034 	sub	r3, fp, #52	; 0x34
+   111a0:	e1a00003 	mov	r0, r3
+   111a4:	ebffff3e 	bl	10ea4 <_Z13countWordLineNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE>
+   111a8:	e1a02000 	mov	r2, r0
+   111ac:	e51b3014 	ldr	r3, [fp, #-20]	; 0xffffffec
+   111b0:	e0833002 	add	r3, r3, r2
+   111b4:	e50b3014 	str	r3, [fp, #-20]	; 0xffffffec
+   111b8:	e24b3034 	sub	r3, fp, #52	; 0x34
+   111bc:	e1a00003 	mov	r0, r3
+   111c0:	ebfffea1 	bl	10c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+   111c4:	e24b301c 	sub	r3, fp, #28
+   111c8:	e1a00003 	mov	r0, r3
+   111cc:	ebfffeb0 	bl	10c94 <_ZNSaIcED1Ev@plt>
+   111d0:	eaffffd0 	b	11118 <main+0x14c>
+   111d4:	e24b3f66 	sub	r3, fp, #408	; 0x198
+   111d8:	e1a00003 	mov	r0, r3
+   111dc:	ebfffe8e 	bl	10c1c <_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv@plt>
+   111e0:	e51b3010 	ldr	r3, [fp, #-16]
+   111e4:	e2433001 	sub	r3, r3, #1
+   111e8:	e50b3010 	str	r3, [fp, #-16]
+   111ec:	e51b3018 	ldr	r3, [fp, #-24]	; 0xffffffe8
+   111f0:	e2433001 	sub	r3, r3, #1
+   111f4:	e50b3018 	str	r3, [fp, #-24]	; 0xffffffe8
+   111f8:	e24b3f66 	sub	r3, fp, #408	; 0x198
+   111fc:	e1a00003 	mov	r0, r3
+   11200:	ebfffe88 	bl	10c28 <_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev@plt>
+   11204:	e24b3080 	sub	r3, fp, #128	; 0x80
+   11208:	e1a00003 	mov	r0, r3
+   1120c:	ebfffe8e 	bl	10c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+   11210:	e51b1010 	ldr	r1, [fp, #-16]
+   11214:	e59f00f8 	ldr	r0, [pc, #248]	; 11314 <main+0x348>
+   11218:	ebfffebe 	bl	10d18 <_ZNSolsEi@plt>
+   1121c:	e1a03000 	mov	r3, r0
+   11220:	e59f10f0 	ldr	r1, [pc, #240]	; 11318 <main+0x34c>
+   11224:	e1a00003 	mov	r0, r3
+   11228:	ebfffe93 	bl	10c7c <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+   1122c:	e1a03000 	mov	r3, r0
+   11230:	e51b1014 	ldr	r1, [fp, #-20]	; 0xffffffec
+   11234:	e1a00003 	mov	r0, r3
+   11238:	ebfffeb6 	bl	10d18 <_ZNSolsEi@plt>
+   1123c:	e1a03000 	mov	r3, r0
+   11240:	e59f10d0 	ldr	r1, [pc, #208]	; 11318 <main+0x34c>
+   11244:	e1a00003 	mov	r0, r3
+   11248:	ebfffe8b 	bl	10c7c <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+   1124c:	e1a03000 	mov	r3, r0
+   11250:	e51b1018 	ldr	r1, [fp, #-24]	; 0xffffffe8
+   11254:	e1a00003 	mov	r0, r3
+   11258:	ebfffeae 	bl	10d18 <_ZNSolsEi@plt>
+   1125c:	e1a03000 	mov	r3, r0
+   11260:	e59f10b0 	ldr	r1, [pc, #176]	; 11318 <main+0x34c>
+   11264:	e1a00003 	mov	r0, r3
+   11268:	ebfffe83 	bl	10c7c <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+   1126c:	e1a03000 	mov	r3, r0
+   11270:	e59f10a4 	ldr	r1, [pc, #164]	; 1131c <main+0x350>
+   11274:	e1a00003 	mov	r0, r3
+   11278:	ebfffe82 	bl	10c88 <_ZNSolsEPFRSoS_E@plt>
+   1127c:	e3a04000 	mov	r4, #0
+   11280:	e24b3068 	sub	r3, fp, #104	; 0x68
+   11284:	e1a00003 	mov	r0, r3
+   11288:	ebfffe6f 	bl	10c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+   1128c:	e1a03004 	mov	r3, r4
+   11290:	ea00001b 	b	11304 <main+0x338>
+   11294:	e24b3050 	sub	r3, fp, #80	; 0x50
+   11298:	e1a00003 	mov	r0, r3
+   1129c:	ebfffe6a 	bl	10c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+   112a0:	ea000013 	b	112f4 <main+0x328>
+   112a4:	e24b3038 	sub	r3, fp, #56	; 0x38
+   112a8:	e1a00003 	mov	r0, r3
+   112ac:	ebfffe78 	bl	10c94 <_ZNSaIcED1Ev@plt>
+   112b0:	ea00000f 	b	112f4 <main+0x328>
+   112b4:	e24b3034 	sub	r3, fp, #52	; 0x34
+   112b8:	e1a00003 	mov	r0, r3
+   112bc:	ebfffe62 	bl	10c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+   112c0:	eaffffff 	b	112c4 <main+0x2f8>
+   112c4:	e24b301c 	sub	r3, fp, #28
+   112c8:	e1a00003 	mov	r0, r3
+   112cc:	ebfffe70 	bl	10c94 <_ZNSaIcED1Ev@plt>
+   112d0:	eaffffff 	b	112d4 <main+0x308>
+   112d4:	e24b3f66 	sub	r3, fp, #408	; 0x198
+   112d8:	e1a00003 	mov	r0, r3
+   112dc:	ebfffe51 	bl	10c28 <_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev@plt>
+   112e0:	eaffffff 	b	112e4 <main+0x318>
+   112e4:	e24b3080 	sub	r3, fp, #128	; 0x80
+   112e8:	e1a00003 	mov	r0, r3
+   112ec:	ebfffe56 	bl	10c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+   112f0:	eaffffff 	b	112f4 <main+0x328>
+   112f4:	e24b3068 	sub	r3, fp, #104	; 0x68
+   112f8:	e1a00003 	mov	r0, r3
+   112fc:	ebfffe52 	bl	10c4c <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+   11300:	ebfffe66 	bl	10ca0 <__cxa_end_cleanup@plt>
+   11304:	e1a00003 	mov	r0, r3
+   11308:	e24bd008 	sub	sp, fp, #8
+   1130c:	e8bd8810 	pop	{r4, fp, pc}
+   11310:	00022120 	.word	0x00022120
+   11314:	00022090 	.word	0x00022090
+   11318:	00011414 	.word	0x00011414
+   1131c:	00010c40 	.word	0x00010c40
+
+00011320 <_Z41__static_initialization_and_destruction_0ii>:
+   11320:	e92d4800 	push	{fp, lr}
+   11324:	e28db004 	add	fp, sp, #4
+   11328:	e24dd008 	sub	sp, sp, #8
+   1132c:	e50b0008 	str	r0, [fp, #-8]
+   11330:	e50b100c 	str	r1, [fp, #-12]
+   11334:	e51b3008 	ldr	r3, [fp, #-8]
+   11338:	e3530001 	cmp	r3, #1
+   1133c:	1a000009 	bne	11368 <_Z41__static_initialization_and_destruction_0ii+0x48>
+   11340:	e51b300c 	ldr	r3, [fp, #-12]
+   11344:	e59f2028 	ldr	r2, [pc, #40]	; 11374 <_Z41__static_initialization_and_destruction_0ii+0x54>
+   11348:	e1530002 	cmp	r3, r2
+   1134c:	1a000005 	bne	11368 <_Z41__static_initialization_and_destruction_0ii+0x48>
+   11350:	e59f0020 	ldr	r0, [pc, #32]	; 11378 <_Z41__static_initialization_and_destruction_0ii+0x58>
+   11354:	ebfffe69 	bl	10d00 <_ZNSt8ios_base4InitC1Ev@plt>
+   11358:	e59f201c 	ldr	r2, [pc, #28]	; 1137c <_Z41__static_initialization_and_destruction_0ii+0x5c>
+   1135c:	e59f101c 	ldr	r1, [pc, #28]	; 11380 <_Z41__static_initialization_and_destruction_0ii+0x60>
+   11360:	e59f0010 	ldr	r0, [pc, #16]	; 11378 <_Z41__static_initialization_and_destruction_0ii+0x58>
+   11364:	ebfffe29 	bl	10c10 <__aeabi_atexit@plt>
+   11368:	e1a00000 	nop			; (mov r0, r0)
+   1136c:	e24bd004 	sub	sp, fp, #4
+   11370:	e8bd8800 	pop	{fp, pc}
+   11374:	0000ffff 	.word	0x0000ffff
+   11378:	000221b4 	.word	0x000221b4
+   1137c:	00022088 	.word	0x00022088
+   11380:	00010d60 	.word	0x00010d60
+
+00011384 <_GLOBAL__sub_I__Z6IsWordc>:
+   11384:	e92d4800 	push	{fp, lr}
+   11388:	e28db004 	add	fp, sp, #4
+   1138c:	e59f1008 	ldr	r1, [pc, #8]	; 1139c <_GLOBAL__sub_I__Z6IsWordc+0x18>
+   11390:	e3a00001 	mov	r0, #1
+   11394:	ebffffe1 	bl	11320 <_Z41__static_initialization_and_destruction_0ii>
+   11398:	e8bd8800 	pop	{fp, pc}
+   1139c:	0000ffff 	.word	0x0000ffff
+
+000113a0 <__libc_csu_init>:
+   113a0:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}
+   113a4:	e1a07000 	mov	r7, r0
+   113a8:	e59f6048 	ldr	r6, [pc, #72]	; 113f8 <__libc_csu_init+0x58>
+   113ac:	e59f5048 	ldr	r5, [pc, #72]	; 113fc <__libc_csu_init+0x5c>
+   113b0:	e08f6006 	add	r6, pc, r6
+   113b4:	e08f5005 	add	r5, pc, r5
+   113b8:	e0466005 	sub	r6, r6, r5
+   113bc:	e1a08001 	mov	r8, r1
+   113c0:	e1a09002 	mov	r9, r2
+   113c4:	ebfffe09 	bl	10bf0 <_init>
+   113c8:	e1b06146 	asrs	r6, r6, #2
+   113cc:	08bd87f0 	popeq	{r4, r5, r6, r7, r8, r9, sl, pc}
+   113d0:	e3a04000 	mov	r4, #0
+   113d4:	e2844001 	add	r4, r4, #1
+   113d8:	e4953004 	ldr	r3, [r5], #4
+   113dc:	e1a02009 	mov	r2, r9
+   113e0:	e1a01008 	mov	r1, r8
+   113e4:	e1a00007 	mov	r0, r7
+   113e8:	e12fff33 	blx	r3
+   113ec:	e1560004 	cmp	r6, r4
+   113f0:	1afffff7 	bne	113d4 <__libc_csu_init+0x34>
+   113f4:	e8bd87f0 	pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+   113f8:	00010b44 	.word	0x00010b44
+   113fc:	00010b38 	.word	0x00010b38
+
+00011400 <__libc_csu_fini>:
+   11400:	e12fff1e 	bx	lr
+
+Disassembly of section .fini:
+
+00011404 <_fini>:
+   11404:	e92d4008 	push	{r3, lr}
+   11408:	e8bd8008 	pop	{r3, pc}
