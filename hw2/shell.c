@@ -11,6 +11,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include <limits.h>
+#include <fcntl.h>
 
 #include "tokenizer.h"
 
@@ -33,7 +34,11 @@ int cmd_exit(struct tokens *tokens);
 int cmd_help(struct tokens *tokens);
 int cmd_pwd(struct tokens *tokens);
 int cmd_cd(struct tokens *tokens);
+
 int cmd_exe(struct tokens *tokens);
+char* get_path_resolution(char *fileName);
+bool redirect_stdin(struct tokens *tokens);
+bool redirect_stdout(struct tokens *tokens);
 
 /* Built-in command functions take token array (see parse.h) and return int */
 typedef int cmd_fun_t(struct tokens *tokens);
@@ -88,6 +93,75 @@ int cmd_cd(struct tokens *tokens)
 	}
 }
 
+int cmd_exe(struct tokens *tokens)
+{
+	pid_t pid = fork();
+	int exitcode;
+	if (pid == 0) { // child process
+		setpgid(0, 0);
+		tcsetpgrp(0, getpgrp());
+		
+		// Reset signal handlers
+		signal(SIGINT, SIG_DFL);
+		signal(SIGQUIT, SIG_DFL);
+		signal(SIGTSTP, SIG_DFL);
+		signal(SIGTTIN, SIG_DFL);
+		signal(SIGTTOU, SIG_DFL);
+		signal(SIGCHLD, SIG_DFL);
+	
+		size_t nSize = tokens_get_length(tokens);
+		if (redirect_stdin(tokens) || redirect_stdout(tokens)) {
+			nSize -= 2;
+		}
+			
+		char* pProgram = tokens_get_token(tokens, 0);
+		char** pArgv = (char**)malloc(sizeof(char*)*(nSize+1));
+		for (int i = 0; i < nSize; i++) {
+			pArgv[i] = tokens_get_token(tokens, i);
+		}
+		pArgv[nSize] = NULL;
+		
+		char *fileName = get_path_resolution(pProgram);
+		if (fileName == NULL)
+			return 0;
+		// printf("%s-%s\n", pProgram, pArgv[1]);
+		execv(fileName, pArgv);
+		
+		free(pArgv);
+	} else {
+		waitpid(pid, &exitcode, 0);
+		tcsetpgrp(0, getpgrp());
+	}
+	return 1;
+}
+
+// Redirect STDIN if redirect in tokens
+bool redirect_stdin(struct tokens *tokens)
+{
+	int num_args = tokens_get_length(tokens);
+	if (num_args >= 3 && strcmp(tokens_get_token(tokens, num_args-2), "<") == 0) {
+		int fd = open(tokens_get_token(tokens, num_args-1), O_RDONLY);
+		dup2(fd, 0);
+		close(fd);
+		return true;
+	}
+	return false;
+}
+
+// Redirect STDOUT if redirect in tokens
+bool redirect_stdout(struct tokens *tokens)
+{
+	int num_args = tokens_get_length(tokens);
+	if (num_args >= 3 && strcmp(tokens_get_token(tokens, num_args-2), ">") == 0) {
+		printf("Opening file %s.\n", tokens_get_token(tokens, num_args-1));
+		int fd = open(tokens_get_token(tokens, num_args-1), O_RDWR|O_TRUNC|O_CREAT, 0777);
+		dup2(fd, 1);
+		close(fd);
+		return true;
+	}
+	return false;
+}
+
 char* get_path_resolution(char *fileName)
 {
 	if (strlen(fileName) <= 0)
@@ -128,27 +202,6 @@ char* get_path_resolution(char *fileName)
 	}
 	free(buff);	
 	return NULL;
-}
-
-int cmd_exe(struct tokens *tokens)
-{
-	size_t nSize = tokens_get_length(tokens);
-	char* pProgram = tokens_get_token(tokens, 0);
-	char** pArgv = (char**)malloc(sizeof(char*)*(nSize+1));
-	for (int i = 0; i < nSize; i++) {
-		pArgv[i] = tokens_get_token(tokens, i);
-	}
-	pArgv[nSize] = NULL;
-	
-	char *fileName = get_path_resolution(pProgram);
-	if (fileName == NULL)
-		return 0;
-	// printf("%s-%s\n", pProgram, pArgv[1]);
-	execv(fileName, pArgv);
-	
-	free(pArgv);
-	
-	return 1;
 }
 
 /* Looks up the built-in command, if it exists. */
