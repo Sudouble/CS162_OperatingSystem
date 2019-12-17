@@ -88,20 +88,67 @@ int cmd_cd(struct tokens *tokens)
 	}
 }
 
+char* get_path_resolution(char *fileName)
+{
+	if (strlen(fileName) <= 0)
+		return NULL;	
+	
+	if (fileName[0] == '/') {
+		if (access(fileName, X_OK) != -1)
+			return fileName;
+		else
+			return NULL;
+	}
+	
+	char* pPath = getenv("PATH");
+	const char delim[2] = ":";
+	char *buff = (char*)malloc(sizeof(char)*PATH_MAX);
+	if (buff == NULL)
+	{
+		//fail("malloc failed.\n", 1);
+		return NULL;
+	}
+	
+	char *token = strtok(pPath, delim);
+	while (token != NULL)
+	{
+		strcpy(buff, token);
+		strcat(buff, "/");
+		strcat(buff, fileName);
+		
+		// printf("trying: %s\n", buff);
+		int nRet = access(buff, X_OK);
+		if (nRet != -1)
+		{
+			// printf("find one: %s\n", buff);
+			return buff;
+		}
+		
+		token = strtok(NULL, delim);
+	}
+	free(buff);	
+	return NULL;
+}
+
 int cmd_exe(struct tokens *tokens)
 {
+	size_t nSize = tokens_get_length(tokens);
 	char* pProgram = tokens_get_token(tokens, 0);
-	char* pArgv[] = {tokens_get_token(tokens, 0), 
-					 tokens_get_token(tokens, 1),
-					 (char*)0 } ;	
-	
-	// printf("%s-%s\n", pProgram, pArgv[0]);
-	if (execv(pProgram, pArgv) != -1) {
-		return 1;
-	} else {
-		printf("run error.\n");
-		return 0;
+	char** pArgv = (char**)malloc(sizeof(char*)*(nSize+1));
+	for (int i = 0; i < nSize; i++) {
+		pArgv[i] = tokens_get_token(tokens, i);
 	}
+	pArgv[nSize] = NULL;
+	
+	char *fileName = get_path_resolution(pProgram);
+	if (fileName == NULL)
+		return 0;
+	// printf("%s-%s\n", pProgram, pArgv[1]);
+	execv(fileName, pArgv);
+	
+	free(pArgv);
+	
+	return 1;
 }
 
 /* Looks up the built-in command, if it exists. */
