@@ -28,6 +28,8 @@ dispatcher_t *new_dispatcher(int concurrency, void (*request_handler)(int)) {
 
 void dispatch(dispatcher_t* dispatcher, int client_socket_number) {
   /* BEGIN TASK 3 SOLUTION */
-
+  
+  pthread_t thread;
+  pthread_create(&thread, NULL, dispatcher->request_handler, (void *)client_socket_number);  
   /* END TASK 3 SOLUTION */
 }

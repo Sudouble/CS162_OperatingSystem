@@ -38,7 +38,29 @@ dispatcher_t *dispatcher;
  */
 void serve_file(int socket_fd, char *path) {
   /* BEGIN TASK 1 SOLUTION */
-
+  int fd = open(path, O_RDONLY);
+  if (fd == -1)
+	  exit(0);
+  off_t off = lseek(fd, 0, SEEK_END);
+  if (off == -1)
+	  exit(0);
+  off = lseek(fd, 0, SEEK_SET);
+  char *buff = (char*)malloc(sizeof(char)*(off+1));
+  ssize_t nResult = read(fd, buff, off);
+  if (nResult == -1)
+	  exit(0);
+  
+  char lenBuff[200];
+  snprintf(lenBuff, 200, "%ld", off);
+  
+  http_start_response(socket_fd, 200);
+  http_send_header(socket_fd, "Content-Type", "text/html");
+  http_send_header(socket_fd, "Content-Length", lenBuff); // filesize
+  http_end_headers(socket_fd);
+  http_send_string(socket_fd, buff);
+  
+  free(buff);
+  close(fd);
   /* END TASK 1 SOLUTION */
 }
 
@@ -50,7 +72,49 @@ void serve_file(int socket_fd, char *path) {
  */
 void serve_directory(int socket_fd, char *path) {
   /* BEGIN TASK 1 SOLUTION */
-
+  char* pFile = "index.html";
+  char* pBuff = (char*)malloc(sizeof(char)*(strlen(path)+strlen(pFile)+2));
+  strcat(pBuff, path);
+  strcat(pBuff, "/");
+  strcat(pBuff, pFile);
+  
+  if(access(pBuff, X_OK) != 1) { // path contain index.html
+	serve_file(socket_fd, pBuff);
+  }else {				
+	int nCount = 0;
+	char* CRLF = "\r\n";
+	char* pBuffSend = (char*)malloc(sizeof(char)*(1000));	
+	
+	DIR* pDir = opendir(path);
+	if (pDir == NULL)
+		exit(0);	
+	struct dirent *stDir = readdir(pDir);
+	while (stDir) {
+		if (stDir->d_type == DT_DIR) {
+			strcat(pBuffSend, stDir->d_name);
+			nCount += strlen(stDir->d_name);
+			strcat(pBuffSend, CRLF);
+			nCount += strlen(CRLF);
+		}
+		stDir = readdir(pDir);
+	}
+	char* pParent = "<a href=\"../\">Parent directory</a>";
+	strcat(pBuffSend, pParent);
+	nCount += strlen(pParent);
+	
+	// length;
+	char lengBuff[200] = {0};
+	snprintf(lengBuff, 200, "%d", nCount);
+	
+	http_start_response(socket_fd, 200);
+	http_send_header(socket_fd, "Content-Type", "text/html");
+	http_send_header(socket_fd, "Content-Length", lengBuff); // directorysize
+	http_end_headers(socket_fd);
+	http_send_string(socket_fd, pParent);
+	
+	free(pBuffSend);
+  }
+  free(pBuff);  
   /* END TASK 1 SOLUTION */
 }
 
@@ -98,7 +162,20 @@ void handle_files_request(int socket_fd) {
   struct stat file_stat;
 
   /* BEGIN TASK 1 SOLUTION */
-
+  if(stat(path, &file_stat) == -1) {
+	  perror("stat");
+	  return;
+  }
+  switch (file_stat.st_mode & S_IFMT) {
+	 case S_IFDIR:		 // directory
+		serve_directory(socket_fd, path);
+		return;
+	 case S_IFREG:  	// files
+		serve_file(socket_fd, path);
+		return;
+	 default:
+		break;
+  }
   /* END TASK 1 SOLUTION */
 
   http_start_response(socket_fd, 404);

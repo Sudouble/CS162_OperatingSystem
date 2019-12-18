@@ -11,12 +11,17 @@
 
 dispatcher_t *new_dispatcher(int concurrency, void (*request_handler)(int)) {
   /* BEGIN TASK 2 SOLUTION */
-
+  // new workers;
+  // bind handler;
   /*END TASK 2 SOLUTION */
 }
 
 void dispatch(dispatcher_t* dispatcher, int client_socket_number) {
   /* BEGIN TASK 2 SOLUTION */
-
+  int childPid = fork();
+  if (childPid == 0)
+  {
+	dispatcher->request_handler(client_socket_number);
+  }
   /*END TASK 2 SOLUTION */
 }
