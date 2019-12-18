@@ -1,0 +1,7 @@
+Run ab on httpserver_basic. What happens when n and c grow large?
+
+Run ab on httpserver_process. What happens when n and c grow large? Compare these results with your answer in the previous question.
+
+Run ab on httpserver_thread. What happens when n and c grow large? Compare these results with your answers in the previous questions.
+
+Run ab on httpserver_pool. What happens when n and c grow large? Compare these results with your answers in the previous questions.
