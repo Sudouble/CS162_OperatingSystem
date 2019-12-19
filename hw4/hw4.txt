@@ -1,7 +1,12 @@
 Run ab on httpserver_basic. What happens when n and c grow large?
+this is unstable with same n and c
 
 Run ab on httpserver_process. What happens when n and c grow large? Compare these results with your answer in the previous question.
+failed to run the program.
 
 Run ab on httpserver_thread. What happens when n and c grow large? Compare these results with your answers in the previous questions.
+this is unstable with same n and c
+it seems bigger c will have better performance within the limit.
 
 Run ab on httpserver_pool. What happens when n and c grow large? Compare these results with your answers in the previous questions.
+with better concurrency performance.

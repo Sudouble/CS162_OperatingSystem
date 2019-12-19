@@ -11,8 +11,8 @@
 
 dispatcher_t *new_dispatcher(int concurrency, void (*request_handler)(int)) {
   /* BEGIN TASK 2 SOLUTION */
-  // new workers;
-  // bind handler;
+  dispatcher_t *dispatcher =  malloc(sizeof(dispatcher_t));
+  dispatcher->request_handler = request_handler;
   /*END TASK 2 SOLUTION */
 }
 
@@ -21,7 +21,8 @@ void dispatch(dispatcher_t* dispatcher, int client_socket_number) {
   int childPid = fork();
   if (childPid == 0)
   {
-	dispatcher->request_handler(client_socket_number);
+	dispatcher->request_handler(client_socket_number);	
+	// printf("child Process Done.\n");
   }
   /*END TASK 2 SOLUTION */
 }

@@ -38,17 +38,18 @@ dispatcher_t *dispatcher;
  */
 void serve_file(int socket_fd, char *path) {
   /* BEGIN TASK 1 SOLUTION */
+  // printf("Doing %s\n;", __FUNCTION__);
   int fd = open(path, O_RDONLY);
   if (fd == -1)
-	  exit(0);
+	  perror("Failed to open file.");
   off_t off = lseek(fd, 0, SEEK_END);
   if (off == -1)
-	  exit(0);
+	  perror("Failed to lseek");
   off = lseek(fd, 0, SEEK_SET);
   char *buff = (char*)malloc(sizeof(char)*(off+1));
   ssize_t nResult = read(fd, buff, off);
   if (nResult == -1)
-	  exit(0);
+	  perror("Failed to read from file.");
   
   char lenBuff[200];
   snprintf(lenBuff, 200, "%ld", off);
@@ -72,22 +73,29 @@ void serve_file(int socket_fd, char *path) {
  */
 void serve_directory(int socket_fd, char *path) {
   /* BEGIN TASK 1 SOLUTION */
-  char* pFile = "index.html";
-  char* pBuff = (char*)malloc(sizeof(char)*(strlen(path)+strlen(pFile)+2));
+  // printf("Doing %s.\n", __FUNCTION__);
+  
+  // printf("%s\n", path);
+  
+  char pFile[] = "/index.html";
+  char* pBuff = (char*)malloc(strlen(path) + strlen(pFile)+ 20);
   strcat(pBuff, path);
   strcat(pBuff, "/");
   strcat(pBuff, pFile);
   
-  if(access(pBuff, X_OK) != 1) { // path contain index.html
+  if(access(pBuff, X_OK) != -1) { // path contain index.html
 	serve_file(socket_fd, pBuff);
-  }else {				
+  }
+  else 
+  {				
 	int nCount = 0;
 	char* CRLF = "\r\n";
 	char* pBuffSend = (char*)malloc(sizeof(char)*(1000));	
 	
 	DIR* pDir = opendir(path);
 	if (pDir == NULL)
-		exit(0);	
+		perror("Failed to open dir");
+	
 	struct dirent *stDir = readdir(pDir);
 	while (stDir) {
 		if (stDir->d_type == DT_DIR) {
@@ -131,7 +139,7 @@ void serve_directory(int socket_fd, char *path) {
  *   4) Send a 404 Not Found response.
  */
 void handle_files_request(int socket_fd) {
-  
+  // printf("Processing...%s.\n", __FUNCTION__);
   struct http_request *request = http_request_parse(socket_fd);
 
   if (request == NULL || request->path[0] != '/') {
@@ -167,9 +175,9 @@ void handle_files_request(int socket_fd) {
 	  return;
   }
   switch (file_stat.st_mode & S_IFMT) {
-	 case S_IFDIR:		 // directory
-		serve_directory(socket_fd, path);
-		return;
+	 // case S_IFDIR:		 // directory
+		// serve_directory(socket_fd, path);
+		// return;
 	 case S_IFREG:  	// files
 		serve_file(socket_fd, path);
 		return;

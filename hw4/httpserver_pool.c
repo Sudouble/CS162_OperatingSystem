@@ -23,6 +23,7 @@ void *handle_clients(void *arg) {
   {
 	  int socket_fd = wq_pop(&dispatch->work_queue);
 	  dispatch->request_handler(socket_fd);
+	  close(socket_fd);
   }
   /* END TASK 4 SOLUTION */
 }
