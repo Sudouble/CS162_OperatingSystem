@@ -30,6 +30,26 @@ static void busy_wait (int64_t loops);
 static void real_time_sleep (int64_t num, int32_t denom);
 static void real_time_delay (int64_t num, int32_t denom);
 
+// Alarm Clock
+struct list_elem_thread
+{
+  struct thread *pThread;
+  struct list_elem elem;
+};
+struct list sleep_elems;
+
+bool less_func_thread(const struct list_elem *a,
+                      const struct list_elem *b,
+                      void *aux)
+{
+  if (a == NULL || b == NULL)
+    return false;
+
+  if (list_entry(a, struct list_elem_thread, elem)->pThread->nTargetTick < list_entry(b, struct list_elem_thread, elem)->pThread->nTargetTick)
+    return true;
+  return false;  
+}
+
 /* Sets up the timer to interrupt TIMER_FREQ times per second,
    and registers the corresponding interrupt. */
 void
@@ -37,6 +57,8 @@ timer_init (void)
 {
   pit_configure_channel (0, 2, TIMER_FREQ);
   intr_register_ext (0x20, timer_interrupt, "8254 Timer");
+
+  list_init(&sleep_elems);
 }
 
 /* Calibrates loops_per_tick, used to implement brief delays. */
@@ -89,11 +111,24 @@ timer_elapsed (int64_t then)
 void
 timer_sleep (int64_t ticks)
 {
+  // int64_t start = timer_ticks ();
+
+  // ASSERT (intr_get_level () == INTR_ON);
+  // while (timer_elapsed (start) < ticks)
+  //   thread_yield ();  
+
+  if (ticks <= 0)
+    return;
+
   int64_t start = timer_ticks ();
 
-  ASSERT (intr_get_level () == INTR_ON);
-  while (timer_elapsed (start) < ticks)
-    thread_yield ();
+  struct thread* cur = thread_current();
+  cur->nTargetTick = start_ticks + ticks;
+
+  struct list_elem_thread elem_sleep = {cur, {NULL, NULL}};
+  list_insert_ordered(&sleep_elems, &elem_sleep.elem, less_func_thread, NULL);
+
+  thread_block();
 }
 
 /* Sleeps for approximately MS milliseconds.  Interrupts must be
@@ -172,6 +207,23 @@ timer_interrupt (struct intr_frame *args UNUSED)
 {
   ticks++;
   thread_tick ();
+
+  while (!list_empty(&sleep_elems))
+  {
+    // first
+    struct list_elem *first_elem = list_begin(&sleep_elems);    
+    struct list_elem_thread *listThread = list_entry(first_elem, struct list_elem_thread, elem);
+    // if ok remove
+    struct thread* pThread = listThread->pThread;    
+    if (pThread != NULL && pThread->nTargetTick >= ticks)
+    {
+      list_remove(first_elem);
+
+      thread_unblock(pThread);
+
+      break;     
+    }
+  }
 }
 
 /* Returns true if LOOPS iterations waits for more than one timer
