@@ -98,6 +98,8 @@ thread_init (void)
   init_thread (initial_thread, "main", PRI_DEFAULT);
   initial_thread->status = THREAD_RUNNING;
   initial_thread->tid = allocate_tid ();
+
+  initial_thread->bIsPriorityDonation = false;
 }
 
 /* Starts preemptive thread scheduling by enabling interrupts.
@@ -493,8 +495,27 @@ next_thread_to_run (void)
   if (list_empty (&ready_list))
     return idle_thread;
   else
-    return list_entry (list_pop_front (&ready_list), struct thread, elem);
+  {
+    //return list_entry (list_pop_front (&ready_list), struct thread, elem);
+
+    struct list_elem* maxElem = list_max(&ready_list, thread_less_fun, NULL);
+    struct thread *pNext = list_entry(maxElem, struct thread, elem);
+    list_remove(maxElem);
+    return maxElem;
+  }
 }
+
+bool thread_less_fun (const struct list_elem *a,
+                             const struct list_elem *b,
+                             void *aux)
+{
+   struct thread *pA = list_entry(a, struct thread, elem);
+   struct thread *pB = list_entry(b, struct thread, elem);
+
+   if (pA->priority < pB->priority)
+    return true;
+   return false;
+}                             
 
 /* Completes a thread switch by activating the new thread's page
    tables, and, if the previous thread is dying, destroying it.

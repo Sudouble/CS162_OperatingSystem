@@ -96,9 +96,16 @@ struct thread
     /* Shared between thread.c and synch.c. */
     struct list_elem elem;              /* List element. */
 
+    bool bIsPriorityDonation;           /* donation flag */
+    int origin_priority;                /* the priority before donation */
+
 #ifdef USERPROG
     /* Owned by userprog/process.c. */
     uint32_t *pagedir;                  /* Page directory. */
+    
+    struct pnode *pnode;
+    struct list file_list;
+    int cur_fd;
 #endif
 
     /* Owned by thread.c. */
@@ -117,7 +124,7 @@ void thread_tick (void);
 void thread_print_stats (void);
 
 typedef void thread_func (void *aux);
-tid_t thread_create (const char *name, int priority, thread_func *, void *);
+tid_t thread_create (const char *name, int priority = PRI_DEFAULT, thread_func *, void *);
 
 void thread_block (void);
 void thread_unblock (struct thread *);
@@ -140,5 +147,9 @@ int thread_get_nice (void);
 void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
+
+bool thread_less_fun (const struct list_elem *a,
+                             const struct list_elem *b,
+                             void *aux);
 
 #endif /* threads/thread.h */
