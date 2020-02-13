@@ -123,7 +123,7 @@ timer_sleep (int64_t ticks)
   int64_t start = timer_ticks ();
 
   struct thread* cur = thread_current();
-  cur->nTargetTick = start_ticks + ticks;
+  cur->nTargetTick = start + ticks;
 
   struct list_elem_thread elem_sleep = {cur, {NULL, NULL}};
   list_insert_ordered(&sleep_elems, &elem_sleep.elem, less_func_thread, NULL);

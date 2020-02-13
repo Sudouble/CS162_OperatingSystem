@@ -32,6 +32,10 @@
 #include "threads/interrupt.h"
 #include "threads/thread.h"
 
+bool cond_less_fun (const struct list_elem *a,
+                             const struct list_elem *b,
+                             void *aux);
+
 /* Initializes semaphore SEMA to VALUE.  A semaphore is a
    nonnegative integer along with two atomic operators for
    manipulating it:
@@ -204,6 +208,7 @@ lock_acquire (struct lock *lock)
   ASSERT (!intr_context ());
   ASSERT (!lock_held_by_current_thread (lock));
 
+  // priority donation
   struct thread* pThread = lock->holder;    
   struct thread* pCur = thread_current ();
   if (lock_try_acquire(lock) == false
@@ -255,7 +260,7 @@ lock_release (struct lock *lock)
   struct thread* pCur = thread_current ();
   if (pCur->bIsPriorityDonation == true)
   {    
-    pCur->priority = pCur->priority;
+    pCur->priority = pCur->origin_priority;
     pCur->bIsPriorityDonation = false;
   }
 
